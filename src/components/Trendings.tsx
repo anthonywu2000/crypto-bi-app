@@ -23,14 +23,16 @@ interface TrendingCoin {
  * look. The rows are given alternating gray and white backgrounds to make
  * them stand out.
  *
- * @returns {TSX.Element} The Trendings component
+ * @returns {JSX.Element} The Trendings component
  */
-const Trendings: React.FC = () => {
+const Trendings: React.FC = (): JSX.Element => {
   const [coins, setCoins] = useState<TrendingCoin[]>([]);
 
   useEffect(() => {
     const fetchTrendingCoins = async () => {
-      {/* TODO: create a separate service for this api call */}
+      {
+        /* TODO: create a separate service for this api call */
+      }
       const response = await axios.get(
         "http://localhost:8080/api/v1/search-trending"
       );
@@ -41,7 +43,7 @@ const Trendings: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="w-1/2 bg-green-200 rounded-lg shadow-lg h-auto w-auto">
+      <div className="bg-green-200 rounded-lg shadow-lg h-auto w-auto">
         <h1 className="text-3xl font-bold p-4">Top Trending Coins</h1>
         <p className="px-4 py-2 text-base">
           This table shows the top 15 trending coins searched on the internet as
@@ -55,7 +57,6 @@ const Trendings: React.FC = () => {
               <th className="px-4 py-2">Coin Name</th>
               <th className="px-4 py-2">Coin Symbol</th>
               <th className="px-4 py-2">Market Cap Rank</th>
-              {/* TODO: add custom tooltip for these two columns in tailwind */}
               <th className="px-4 py-2">Total Volume (in USD)</th>
               <th className="px-4 py-2">Market Cap (in USD)</th>
               <th className="px-4 py-2">Sparkline</th>

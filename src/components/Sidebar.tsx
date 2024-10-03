@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * A side navigation bar that contains links to the main pages of the Crypto BI app.
+ *
+ * The sidebar is a 64px wide vertical bar that is divided into two sections: a title and a navigation section.
+ * The title displays the name "Crypto BI Dashboard" in a large font.
+ * The navigation section contains three links: "Cryptocurrency Table", "Crypto Historical Chart", and "Trending Crypto Coins".
+ * Each link is displayed as a list item with a hover effect.
+ */
 const Sidebar: React.FC = () => {
   return (
-    <div className="h-screen w-64 bg-gray-800 text-white flex flex-col h-auto">
+    <div className="w-64 bg-gray-800 text-white flex flex-col h-auto">
       <div className="p-4 text-lg font-bold">Crypto BI Dashboard</div>
       <nav className="flex-grow">
         <ul className="divide-y divide-gray-700">
