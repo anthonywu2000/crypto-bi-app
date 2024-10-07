@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Line } from "react-chartjs-2";
 import LineChart from "./LineChart";
 
 interface CoinMap {
@@ -13,25 +12,25 @@ interface ChartData {
   y: Number;
 }
 
-  /**
-   * This component fetches a list of coins from the API and renders a dropdown
-   * allowing the user to select a coin. Additionally, it fetches the market data
-   * for the selected coin and renders a line chart with the data.
-   *
-   * The component remembers the user's selection and updates the line chart
-   * accordingly whenever the user selects a different coin or changes the time
-   * period.
-   *
-   * @returns {JSX.Element} The CoinChart component
-   */
+/**
+ * This component fetches a list of coins from the API and renders a dropdown
+ * allowing the user to select a coin. Additionally, it fetches the market data
+ * for the selected coin and renders a line chart with the data.
+ *
+ * The component remembers the user's selection and updates the line chart
+ * accordingly whenever the user selects a different coin or changes the time
+ * period.
+ *
+ * @returns {JSX.Element} The CoinChart component
+ */
 const CoinChart: React.FC = (): JSX.Element => {
   const [selectedCoinId, setSelectedCoinId] = useState<string>("bitcoin");
   const [selectedDays, setSelectedDays] = useState<number>(7);
   const [coinIdMap, setCoinIdMap] = useState<CoinMap[]>([]);
   const [chartData, setChartData] = useState<ChartData[]>([]);
 
+  // TODO: move this to a separate api service and check how to refactor the two useEffects
   useEffect(() => {
-
     const fetchCoinIdMap = async () => {
       const { data } = await axios.get<CoinMap[]>(
         "http://localhost:8080/api/v1/coins-list"

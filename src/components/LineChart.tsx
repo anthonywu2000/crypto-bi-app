@@ -6,6 +6,7 @@ import {
   LinearScale,
   PointElement,
   Tooltip,
+  Filler
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -14,7 +15,8 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  Tooltip
+  Tooltip,
+  Filler
 );
 
 interface ChartData {
@@ -53,6 +55,7 @@ const LineChart: React.FC<{ chartPoints: ChartData[] }> = ({
 
   const options = {
     reponsive: true,
+    // TODO: add label axes
     scales: {
       x: {
         display: true,

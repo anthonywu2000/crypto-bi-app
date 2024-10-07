@@ -29,14 +29,12 @@ const Trendings: React.FC = (): JSX.Element => {
   const [coins, setCoins] = useState<TrendingCoin[]>([]);
 
   useEffect(() => {
+    // TODO: create a separate service for this api call
     const fetchTrendingCoins = async () => {
-      {
-        /* TODO: create a separate service for this api call */
-      }
-      const response = await axios.get(
+      const { data } = await axios.get(
         "http://localhost:8080/api/v1/search-trending"
       );
-      setCoins(response.data);
+      setCoins(data);
     };
     fetchTrendingCoins();
   }, []);
