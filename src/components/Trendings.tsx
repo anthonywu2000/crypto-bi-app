@@ -42,7 +42,10 @@ const Trendings: React.FC = (): JSX.Element => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="bg-green-200 rounded-lg shadow-lg h-auto w-auto">
-        <h1 className="text-3xl font-bold p-4">Top Trending Coins</h1>
+        <h1 className="text-3xl font-bold p-4">
+          Top Trending Coins as of{" "}
+          {new Intl.DateTimeFormat("en-CA").format(new Date())}
+        </h1>
         <p className="px-4 py-2 text-base">
           This table shows the top 15 trending coins searched on the internet as
           of now, sorted by their market cap value.
@@ -68,14 +71,16 @@ const Trendings: React.FC = (): JSX.Element => {
                 } hover:bg-gray-200`}
                 key={coin.id}
               >
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 flex items-center justify-center">
                   <img src={coin.thumb} alt="Thumbnail" className="w-8 h-8" />
                 </td>
-                <td className="px-4 py-2">{coin.name}</td>
-                <td className="px-4 py-2">{coin.symbol}</td>
-                <td className="px-4 py-2">{coin.market_cap_rank}</td>
-                <td className="px-4 py-2">{coin.total_volume}</td>
-                <td className="px-4 py-2">{coin.market_cap}</td>
+                <td className="px-4 py-2 text-center">{coin.name}</td>
+                <td className="px-4 py-2 text-center">{coin.symbol}</td>
+                <td className="px-4 py-2 text-center">
+                  {coin.market_cap_rank}
+                </td>
+                <td className="px-4 py-2 text-center">{coin.total_volume}</td>
+                <td className="px-4 py-2 text-center">{coin.market_cap}</td>
                 <td className="px-4 py-2">
                   <img
                     src={coin.sparkline}

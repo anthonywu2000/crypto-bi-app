@@ -22,13 +22,13 @@ const Sidebar: React.FC = (): JSX.Element => {
       <div className="p-4 text-lg font-bold">Crypto BI Dashboard</div>
       <nav className="flex-grow">
         <ul className="divide-y divide-gray-700">
-          <li className="p-2 hover:bg-gray-700">
+          <li className="p-2 hover:bg-gray-700 text-center">
             <Link to="/">Cryptocurrency Table</Link>
           </li>
-          <li className="p-2 hover:bg-gray-700">
+          <li className="p-2 hover:bg-gray-700 text-center">
             <Link to="/chart">Crypto Historical Chart</Link>
           </li>
-          <li className="p-2 hover:bg-gray-700">
+          <li className="p-2 hover:bg-gray-700 text-center">
             <Link to="/trendings">Trending Crypto Coins</Link>
           </li>
         </ul>

@@ -55,7 +55,6 @@ const LineChart: React.FC<{ chartPoints: ChartData[] }> = ({
 
   const options = {
     reponsive: true,
-    // TODO: add label axes
     scales: {
       x: {
         display: true,
